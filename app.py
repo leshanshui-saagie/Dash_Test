@@ -6,8 +6,6 @@ import dash_html_components as html
 
 app = dash.Dash()
 
-app = JupyterDash('Dash Layout')
-
 app.layout = html.Div([
     dcc.Input(id = 'my-id', value = 'init', type = 'text'),
     html.Div(id = 'my-div')
@@ -22,4 +20,4 @@ def update_output_div(input_value):
     return 'You have input %s, reporting to %s'%(input_value, os.environ['APP_URL'])
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8050)
+    app.run(host='0.0.0.0', port=8050)
