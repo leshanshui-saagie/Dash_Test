@@ -3,8 +3,8 @@ FROM python:3.7
 ENV DASH_DEBUG_MODE True
 
 
-COPY app /
-COPY requirements /
+COPY app.py /
+COPY requirements.txt /
 
 RUN set -ex && pip install -r requirements.txt
 
