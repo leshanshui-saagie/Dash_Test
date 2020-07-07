@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8077
 
-CMD ["python", "app.py"]
+CMD gunicorn -b 0.0.0.0:8077 app:server
