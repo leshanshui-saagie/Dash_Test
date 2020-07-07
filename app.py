@@ -4,7 +4,10 @@ from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 
-app = dash.Dash()
+app = dash.Dash(__name__)
+server = app.server
+app.scripts.config.serve_locally = True
+app.css.config.serve_locally = True
 
 app.layout = html.Div([
     dcc.Input(id = 'my-id', value = 'init', type = 'text'),
@@ -24,4 +27,4 @@ def update_output_div(input_value):
     return 'You have input %s'%(input_value)
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8050)
+    app.run_server(host='0.0.0.0', port=8078)
