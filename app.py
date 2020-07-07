@@ -17,7 +17,11 @@ app.layout = html.Div([
 )
 
 def update_output_div(input_value):
-    return 'You have input %s, reporting to %s'%(input_value, os.environ['APP_URL'])
+    try:
+        print(os.environ['APP_URL'])
+    except:
+        print("Cant get pf env var")
+    return 'You have input %s'%(input_value)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8050)
