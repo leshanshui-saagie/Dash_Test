@@ -7,3 +7,4 @@ dash-table
 Flask
 Flask-Compress
 plotly
+gunicorn 
