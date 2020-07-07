@@ -1,30 +1,34 @@
 import os
 import dash
+
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 
-app = dash.Dash(__name__)
-server = app.server
-app.scripts.config.serve_locally = True
-app.css.config.serve_locally = True
 
-app.layout = html.Div([
-    dcc.Input(id = 'my-id', value = 'init', type = 'text'),
-    html.Div(id = 'my-div')
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import flask
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server,external_stylesheets=external_stylesheets)
+app.config.suppress_callback_exceptions = True
+
+
+app.layout = html.Div(children=[
+    html.H1(children='Hello Dash'),
+    html.Div(children='''Dash: A web application framework for Python.''')
 ])
 
-@app.callback(
-    Output(component_id = 'my-div', component_property = 'children'),
-    [Input(component_id = 'my-id', component_property = 'value')]
-)
-
-def update_output_div(input_value):
+if __name__ == '__main__':
     try:
         print(os.environ['APP_URL'])
     except:
         print("Cant get pf env var")
-    return 'You have input %s'%(input_value)
+    app.run_server(port=8077)
 
-if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8078)
+
+
