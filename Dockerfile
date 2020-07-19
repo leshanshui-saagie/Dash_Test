@@ -6,7 +6,7 @@ WORKDIR /
 
 COPY . /
 
-RUN pip install dash --ignore-installed PyYAML 
+RUN pip install dash==0.39.0  --ignore-installed PyYAML 
 RUN pip install -r requirements.txt
 
 EXPOSE 8051
