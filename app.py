@@ -8,6 +8,7 @@ x = numpy.linspace(0, 2 * numpy.pi, 100)
 y = 10 * 2 * numpy.cos(t)
 
 app = dash.Dash()
+server = app.server
 app.layout = dash_html_components.Div(children=[
     dash_html_components.H1(children='Testme'),
     dash_core_components.Graph(
