@@ -8,6 +8,6 @@ COPY . /
 
 RUN pip install -r requirements.txt
 
-EXPOSE 8077
+EXPOSE 8051
 
-CMD gunicorn -b 0.0.0.0:8077 app:server
+CMD gunicorn -b 0.0.0.0:8051 app:server
