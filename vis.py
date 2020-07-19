@@ -9,6 +9,8 @@ y = 10 * 2 * numpy.cos(t)
 
 app = dash.Dash()
 server = app.server
+app.scripts.config.serve_locally = True # Debug use
+app.css.config.serve_locally = True # Debug use
 app.layout = dash_html_components.Div(children=[
     dash_html_components.H1(children='Testme'),
     dash_core_components.Graph(
