@@ -1,14 +1,12 @@
-FROM python:3.7
+FROM python:3.6
 
-USER root
+WORKDIR /heads
 
-WORKDIR /
+COPY vis.py /heads/dash_app/
 
-COPY . /
+RUN pip install numpy
+RUN pip install dash==1.13.3
 
-RUN pip install dash==0.39.0  --ignore-installed PyYAML 
-RUN pip install -r requirements.txt
+EXPOSE 8060
 
-EXPOSE 8051
-
-CMD ["gunicorn", "vis:server", "-b", "0.0.0.0:8051"]
+CMD ["gunicorn", "vis:server", "-b", "0.0.0.0:8060"]
