@@ -2,7 +2,7 @@ FROM python:3.6
 
 WORKDIR /heads
 
-COPY vis.py /heads/dash_app/
+COPY vis.py /heads/
 
 RUN pip install numpy
 RUN pip install dash==1.13.3
