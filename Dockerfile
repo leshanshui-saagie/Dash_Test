@@ -6,6 +6,7 @@ COPY vis.py /heads/
 
 RUN pip install numpy
 RUN pip install dash==1.13.3
+RUN pip install gunicorn
 
 EXPOSE 8060
 
