@@ -27,7 +27,7 @@ app.layout = dash_html_components.Div(children=[
 server = app.server
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=8051, use_reloader=False)
+    app.run_server(debug=True, host='0.0.0.0', port=8060, use_reloader=False)
 
     
 
